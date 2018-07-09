@@ -1016,7 +1016,7 @@
     <div alt="18" class="e"></div>
     <div alt="19" class="e"></div>
     <div alt="20" class="e"></div>
-    <div alt="21" class="b" style="color: gold"><i class="fas fa-sun"></i></div>
+    <div alt="21" class="b d" style="color: gold"><i class="fas fa-sun"></i></div>
     <div alt="22" class="e"></div>
     <div alt="23" class="e"></div>
     <div alt="24" class="e"></div>
@@ -1922,13 +1922,13 @@
 
 <div id="legendForm">
 <form id="form">
-    <input type="radio" name="symbol" value="F" checked="checked"> Свободно<br />
+    <input type="radio" name="symbol" value="E" checked="checked"> Свободно<br />
     <input type="radio" name="symbol" value="B"> Заблокировано<br />
     <input type="radio" name="symbol" value="С"> Постройка<br />
     <input type="radio" name="symbol" value="R"> Дорога<br />
     <input type="radio" name="symbol" value="F"> Поле<br />
 
-    <input type="radio" name="symbol" value="E"> E - Вход<br />
+    <input type="radio" name="symbol" value="X"> X - Вход<br />
     <input type="radio" name="symbol" value="W"> W - Колодец<br />
     <input type="radio" name="symbol" value="T"> T - Торговая лавка<br />
     <input type="radio" name="symbol" value="S"> S - Кузня<br />
@@ -1955,6 +1955,7 @@ form.onsubmit = function()
     {
         if(Radio[i].checked)
         {
+        	elt.classList.remove('e');
             elt.classList.remove('c');
             elt.classList.remove('b');
             elt.classList.remove('g');
@@ -1965,8 +1966,8 @@ form.onsubmit = function()
             switch(Radio[i].value)
             {
             	case 'E':
-                    elt.innerHTML = Radio[i].value;
-                    elt.classList.add('c');
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.add('e');
                     break;
 
             	case 'T':
@@ -1993,7 +1994,7 @@ form.onsubmit = function()
 				case 'F':
 					elt.innerHTML = '&nbsp;';
 					elt.classList.remove('e');
-                    elt.classList.add('f');
+                    elt.classList.add('e');
                     break;
 
 				case 'R':
