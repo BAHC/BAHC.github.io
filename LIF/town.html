@@ -2,6 +2,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 <style>
 * { font-family: Verdana, sans-serif }
 
@@ -16,7 +18,7 @@
     padding: 0;
 }
 
-.d, .e, .b, .c, .g, .sld { 
+.d, .f, .r, .w, x, .e, .b, .c, .g, .sld { 
     display: table-cell;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -35,6 +37,9 @@
     cursor: hand;
 }
 
+.r { background-color: #666666; }
+.f { background-color: #F5DEB3; } 
+.w { background-color: #00FFFF; }
 .e { background-color: #FFFFFF; }
 .b { background-color: #FF0000; }
 .c { background-color: #FFFF00; }
@@ -1011,7 +1016,7 @@
     <div alt="18" class="e"></div>
     <div alt="19" class="e"></div>
     <div alt="20" class="e"></div>
-    <div alt="21" class="c">М</div>
+    <div alt="21" class="b" style="color: gold"><i class="fas fa-sun"></i></div>
     <div alt="22" class="e"></div>
     <div alt="23" class="e"></div>
     <div alt="24" class="e"></div>
@@ -1917,11 +1922,20 @@
 
 <div id="legendForm">
 <form id="form">
-    <input type="radio" name="symbol" value="F"> Свободно<br/>
-    <input type="radio" name="symbol" value="B"> Заблокировано<br/>
-    <input type="radio" name="symbol" value="С"> Постройка<br/>
-    <input type="radio" name="symbol" value="K"> K - Колодец<br/>
-    <input type="radio" name="symbol" value="P"> P - Ров<br/>
+    <input type="radio" name="symbol" value="F" checked="checked"> Свободно<br />
+    <input type="radio" name="symbol" value="B"> Заблокировано<br />
+    <input type="radio" name="symbol" value="С"> Постройка<br />
+    <input type="radio" name="symbol" value="R"> Дорога<br />
+    <input type="radio" name="symbol" value="F"> Поле<br />
+
+    <input type="radio" name="symbol" value="E"> E - Вход<br />
+    <input type="radio" name="symbol" value="W"> W - Колодец<br />
+    <input type="radio" name="symbol" value="T"> T - Торговая лавка<br />
+    <input type="radio" name="symbol" value="S"> S - Кузня<br />
+    <input type="radio" name="symbol" value="H"> H - Дом<br />
+    <input type="radio" name="symbol" value="M"> M - Ров<br />
+
+	<br />
     <input type="submit" name="submit" value="Сохранить" />
 </form>
 </div>
@@ -1944,13 +1958,48 @@ form.onsubmit = function()
             elt.classList.remove('c');
             elt.classList.remove('b');
             elt.classList.remove('g');
+            elt.classList.remove('w');
+            elt.classList.remove('f');
             elt.classList.remove('sld');
             
             switch(Radio[i].value)
             {
-                case 'K':
+            	case 'E':
                     elt.innerHTML = Radio[i].value;
                     elt.classList.add('c');
+                    break;
+
+            	case 'T':
+                    elt.innerHTML = Radio[i].value;
+                    elt.classList.add('c');
+                    break;
+
+            	case 'S':
+                    elt.innerHTML = Radio[i].value;
+                    elt.classList.add('c');
+                    break;
+
+            	case 'H':
+                    elt.innerHTML = Radio[i].value;
+                    elt.classList.add('c');
+                    break;
+
+				case 'W':
+					elt.innerHTML = Radio[i].value;
+					elt.classList.remove('e');
+                    elt.classList.add('w');
+                    break;
+
+				case 'F':
+					elt.innerHTML = '&nbsp;';
+					elt.classList.remove('e');
+                    elt.classList.add('f');
+                    break;
+
+				case 'R':
+					elt.innerHTML = '&nbsp;';
+					elt.classList.remove('e');
+                    elt.classList.add('r');
                     break;
 
                 case 'С':
@@ -1958,7 +2007,7 @@ form.onsubmit = function()
                     elt.classList.add('c');
                     break;
 
-                case 'P':
+                case 'M':
                     elt.innerHTML = Radio[i].value;
                     elt.classList.add('g');
                     break;
