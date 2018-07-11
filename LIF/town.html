@@ -58,13 +58,16 @@
 
 #legendForm {
     position: fixed;
-    display:none;
-    width: 250px;
+    top: 10px;
+    right: 10px;
+    width: 170px;
+    padding: 10px;
     background-color: #FFFFFF;
     border: 1px solid #EEEEEE;
 }
 
-#close { position: absolute; right: 10px; } 
+#close { position: absolute; right: 10px; }
+#form { font-size: 11px; }
 </style>
 </head>
 <body>
@@ -1922,21 +1925,19 @@
 
 <div id="legendForm">
 <form id="form">
-    <input type="radio" name="symbol" value="E" checked="checked"> Свободно<br />
-    <input type="radio" name="symbol" value="B"> Заблокировано<br />
-    <input type="radio" name="symbol" value="С"> Постройка<br />
-    <input type="radio" name="symbol" value="R"> Дорога<br />
-    <input type="radio" name="symbol" value="F"> Поле<br />
+    <label><input type="radio" name="symbol" value="E" checked="checked"> Свободно</label><br />
+    <label><input type="radio" name="symbol" value="B"> Заблокировано</label><br />
+    <label><input type="radio" name="symbol" value="С"> Постройка</label><br />
+    <label><input type="radio" name="symbol" value="R"> Дорога</label><br />
+    <label><input type="radio" name="symbol" value="F"> Поле</label><br />
 
-    <input type="radio" name="symbol" value="X"> X - Вход<br />
-    <input type="radio" name="symbol" value="W"> W - Колодец<br />
-    <input type="radio" name="symbol" value="T"> T - Торговая лавка<br />
-    <input type="radio" name="symbol" value="S"> S - Кузня<br />
-    <input type="radio" name="symbol" value="H"> H - Дом<br />
-    <input type="radio" name="symbol" value="M"> M - Ров<br />
+    <label><input type="radio" name="symbol" value="X"> X - Вход</label><br />
+    <label><input type="radio" name="symbol" value="W"> W - Колодец</label><br />
+    <label><input type="radio" name="symbol" value="T"> T - Торговая лавка</label><br />
+    <label><input type="radio" name="symbol" value="S"> S - Кузня</label><br />
+    <label><input type="radio" name="symbol" value="H"> H - Дом</label><br />
+    <label><input type="radio" name="symbol" value="M"> M - Ров</label><br />
 
-	<br />
-    <input type="submit" name="submit" value="Сохранить" />
 </form>
 </div>
 <script>
@@ -1946,9 +1947,8 @@ var form = document.getElementById("form");
 var elt = null;
 var elt_prev = null;
 
-form.onsubmit = function()
+var formSubmit = function()
 {
-    event.preventDefault();
     var Radio = form.elements["symbol"];
     
     for(i = 0; i < Radio.length; i++)
@@ -1961,50 +1961,52 @@ form.onsubmit = function()
             elt.classList.remove('g');
             elt.classList.remove('w');
             elt.classList.remove('f');
+            elt.classList.remove('r');
             elt.classList.remove('sld');
             
             switch(Radio[i].value)
             {
-            	case 'E':
+
+                case 'E':
                     elt.innerHTML = '&nbsp;';
                     elt.classList.add('e');
                     break;
 
-            	case 'T':
+                case 'T':
                     elt.innerHTML = Radio[i].value;
                     elt.classList.add('c');
                     break;
 
-            	case 'S':
+                case 'S':
                     elt.innerHTML = Radio[i].value;
                     elt.classList.add('c');
                     break;
 
-            	case 'X':
+                case 'X':
                     elt.innerHTML = Radio[i].value;
                     elt.classList.add('c');
                     break;
 
-            	case 'H':
+                case 'H':
                     elt.innerHTML = Radio[i].value;
                     elt.classList.add('c');
                     break;
 
-				case 'W':
-					elt.innerHTML = Radio[i].value;
-					elt.classList.remove('e');
+                case 'W':
+                    elt.innerHTML = Radio[i].value;
+                    elt.classList.remove('e');
                     elt.classList.add('w');
                     break;
 
-				case 'F':
-					elt.innerHTML = '&nbsp;';
-					elt.classList.remove('e');
-                    elt.classList.add('e');
+                case 'F':
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.remove('e');
+                    elt.classList.add('f');
                     break;
 
-				case 'R':
-					elt.innerHTML = '&nbsp;';
-					elt.classList.remove('e');
+                case 'R':
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.remove('e');
                     elt.classList.add('r');
                     break;
 
@@ -2029,7 +2031,7 @@ form.onsubmit = function()
             }
         }
     }
-    legendForm.style.display = 'none';
+    //legendForm.style.display = 'none';
     return false;
 };
 
@@ -2055,7 +2057,8 @@ for(var i=0; i<trs.length; i++)
 
             if ("М" != this.innerText && false === elt.classList.contains("d"))
             {
-                hoverdiv(event);
+                legendForm.style.display = 'block';
+                formSubmit();
             }
             else
             {
