@@ -20,7 +20,7 @@ h1 { font-size: 106%; }
     padding: 0;
 }
 
-.d, .f, .r, .w, x, .e, .b, .c, .g, .hg, .tr, .sld { 
+.d, .f, .r, .w, x, .e, .b, .c, .g, .hg, .tr, .ws, .ww, .sld { 
     display: table-cell;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -41,7 +41,7 @@ h1 { font-size: 106%; }
     cursor: hand;
 }
 
-.r { background-color: #666666; }
+.r { background-color: #999999; }
 .f { background-color: #F5DEB3; } 
 .w { background-color: #00FFFF; }
 .e { background-color: #FFFFFF; }
@@ -50,6 +50,8 @@ h1 { font-size: 106%; }
 .g { background-color: #EFEFEF; }
 .hg { background-color: #66DD66; }
 .tr { background-color: #33EE33; }
+.ws { background-color: #666666; }
+.ww { background-color: #6D6036; }
 
 .tb { border-top: 1px solid red; }
 .bb { border-bottom: 1px solid red; }
@@ -1943,6 +1945,8 @@ h1 { font-size: 106%; }
     <label><input type="radio" name="symbol" value="H"> H - Дом</label><br />
     <label><input type="radio" name="symbol" value="M"> M - Ров</label><br />
     <label><input type="radio" name="symbol" value="G"> G - Ворота</label><br />
+    <label><input type="radio" name="symbol" value="WS"> Стена каменная</label><br />
+    <label><input type="radio" name="symbol" value="WW"> Стена деревянная</label><br />
     
     <label><input type="radio" name="symbol" value="A"> A - Кузня</label><br />
     <label><input type="radio" name="symbol" value="X"> X - Вход</label><br />
@@ -1979,6 +1983,8 @@ var formSubmit = function()
             elt.classList.remove('f');
             elt.classList.remove('r');
             elt.classList.remove('hg');
+            elt.classList.remove('ws');
+            elt.classList.remove('ww');
             elt.classList.remove('sld');
             
             switch(Radio[i].value)
@@ -2075,6 +2081,16 @@ var formSubmit = function()
                 case 'TR':
                     elt.innerHTML = '<i class="fas fa-tree"></i>';
                     elt.classList.add('hg');
+                    break;
+
+                case 'WS':
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.add('ws');
+                    break;
+
+                case 'WW':
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.add('ww');
                     break;
             }
         }
