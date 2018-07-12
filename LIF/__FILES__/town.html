@@ -1945,9 +1945,12 @@ h1 { font-size: 106%; }
     <label><input type="radio" name="symbol" value="H"> H - Дом</label><br />
     <label><input type="radio" name="symbol" value="M"> M - Ров</label><br />
     <label><input type="radio" name="symbol" value="G"> G - Ворота</label><br />
+    <br />
     <label><input type="radio" name="symbol" value="WS"> Стена каменная</label><br />
     <label><input type="radio" name="symbol" value="WW"> Стена деревянная</label><br />
-    
+    <label><input type="radio" name="symbol" value="STS"> Лестница каменная</label><br />
+    <label><input type="radio" name="symbol" value="STW"> Лестница деревянная</label><br />
+    <br />
     <label><input type="radio" name="symbol" value="A"> A - Кузня</label><br />
     <label><input type="radio" name="symbol" value="X"> X - Вход</label><br />
     <label><input type="radio" name="symbol" value="W"> W - Колодец</label><br />
@@ -1989,10 +1992,34 @@ var formSubmit = function()
             
             switch(Radio[i].value)
             {
+                case 'A':
+                    elt.innerHTML = Radio[i].value;
+                    elt.classList.add('c');
+                    break;
+
+                case 'B':
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.add('b');
+                    break;
+
+                case 'С':
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.add('c');
+                    break;
+
+                case 'D':
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.add('c');
+                    break;
 
                 case 'E':
                     elt.innerHTML = '&nbsp;';
                     elt.classList.add('e');
+                    break;
+
+                case 'F':
+                    elt.innerHTML = '&nbsp;';
+                    elt.classList.add('f');
                     break;
 
                 case 'G':
@@ -2000,7 +2027,7 @@ var formSubmit = function()
                     elt.classList.add('c');
                     break;
 
-                case 'A':
+                case 'H':
                     elt.innerHTML = Radio[i].value;
                     elt.classList.add('c');
                     break;
@@ -2030,10 +2057,7 @@ var formSubmit = function()
                     elt.classList.add('c');
                     break;
 
-                case 'H':
-                    elt.innerHTML = Radio[i].value;
-                    elt.classList.add('c');
-                    break;
+
 
                 case 'W':
                     elt.innerHTML = Radio[i].value;
@@ -2041,11 +2065,7 @@ var formSubmit = function()
                     elt.classList.add('w');
                     break;
 
-                case 'F':
-                    elt.innerHTML = '&nbsp;';
-                    elt.classList.remove('e');
-                    elt.classList.add('f');
-                    break;
+
 
                 case 'R':
                     elt.innerHTML = '&nbsp;';
@@ -2053,20 +2073,14 @@ var formSubmit = function()
                     elt.classList.add('r');
                     break;
 
-                case 'С':
-                    elt.innerHTML = '&nbsp;';
-                    elt.classList.add('c');
-                    break;
+
 
                 case 'M':
                     elt.innerHTML = Radio[i].value;
                     elt.classList.add('g');
                     break;
                 
-                case 'B':
-                    elt.innerHTML = '&nbsp;';
-                    elt.classList.add('b');
-                    break;
+
                 
                 case 'F':
                     elt.innerHTML = '&nbsp;';
@@ -2092,6 +2106,22 @@ var formSubmit = function()
                     elt.innerHTML = '&nbsp;';
                     elt.classList.add('ww');
                     break;
+
+                case 'AL':
+                    elt.innerHTML = '<i class="fas fa-mortar-pestle"></i>';
+                    elt.classList.add('al');
+                    break;
+                
+                case 'STS':
+                    elt.innerHTML = '<i class="fas fa-bars"></i>';
+                    elt.classList.add('ws');
+                    break;
+                
+                case 'STW':
+                    elt.innerHTML = '<i class="fas fa-bars"></i>';
+                    elt.classList.add('ww');
+                    break;
+
             }
         }
     }
