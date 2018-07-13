@@ -1,7 +1,7 @@
 <?php
 
 const EOL                = PHP_EOL;
-const CMSIF_VER          = '0.04b';
+const CMSIF_VER          = '0.05b';
 const CMSIF_TPL          = 'default';
 const CMSIF_ENCODING     = 'UTF-8';
 const CMSIF_COOKIE_LTIME = 3600;
@@ -79,7 +79,7 @@ function init()
     
     cookieSet('language', languageGet());
     
-    dbConnect();
+    //dbConnect();
 }
 
 function languageGet()
@@ -799,18 +799,24 @@ function error404()
     exit(0);
 }
 
-function asset($_asset = '', $_media='screen')
+function asset($_asset = '', $_opt=[])
 {
     if(!empty($_asset))
     {
         $_assets = dataGet('assets_local', []);
         if(isset($_assets[ md5($_asset) ])) return;
-        
+
+        $_type        = isset($_opt['type'])? $_opt['type']: null;
+        $_media       = isset($_opt['media'])? $_opt['media']: null;
+        $_integrity   = isset($_opt['integrity'])? $_opt['integrity']: null;
+        $_crossorigin = isset($_opt['crossorigin'])? $_opt['crossorigin']: null;
+        $_version     = isset($_opt['version'])? $_opt['version']: null;
+
         $_out = '';
         $_file = filterOne($_asset, ' .\/');
         $_ext = stringLow( pathinfo($_file, PATHINFO_EXTENSION) );
         $_file_path = __DIR__ .'/'. $_ext .'/'.  $_file;
-        $_file_url  = getHost() . CMSIF_ASSETS . $_ext.'/'. $_file;
+        $_file_url  = getHost() . CMSIF_ASSETS . $_ext.'/'. $_file .(!is_null($_version)? '?'.$_version:'');
 
         if(file_exists($_file_path) && is_readable($_file_path))
         {
@@ -837,22 +843,31 @@ function asset($_asset = '', $_media='screen')
     return false;
 }
 
-function assetExternal($_asset = '', $_type = '', $_media = 'screen')
+function assetExternal($_asset = '', $_opt=[])
 {
     if(!empty($_asset))
     {
         $_assets = dataGet('assets_external', []);
         if(isset($_assets[ md5($_asset) ])) return;
         
-        $_ext = (!empty($_type)) ?$_type: pathinfo($_asset, PATHINFO_EXTENSION);
-        
+        $_type        = isset($_opt['type'])? $_opt['type']: null;
+        $_media       = isset($_opt['media'])? $_opt['media']: null;
+        $_integrity   = isset($_opt['integrity'])? $_opt['integrity']: null;
+        $_crossorigin = isset($_opt['crossorigin'])? $_opt['crossorigin']: null;
+
+        $_ext = stringLow( !is_null($_type)? $_type: pathinfo($_asset, PATHINFO_EXTENSION) );
+
+        $_options  = $_media? ' media="'.$_media.'"':'';
+        $_options .= $_integrity? ' integrity="'.$_integrity.'"':'';
+        $_options .= $_crossorigin? ' crossorigin="'.$_crossorigin.'"':'';
+
         switch($_ext)
         {
             case 'css':
-                $_out = '<link rel="stylesheet" type="text/css" href="'. $_asset .'" media="'.$_media.'">';
+                $_out = '<link rel="stylesheet" type="text/css" href="'. $_asset .'"'.$_options.'>';
                 break;
             case 'js':
-                $_out = '<script src="'. $_asset .'"></script>';
+                $_out = '<script language="javascript" src="'. $_asset .'"'.$_options.'></script>';
             default:
                 break;
         }

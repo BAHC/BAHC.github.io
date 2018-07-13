@@ -79,8 +79,7 @@ h1 { font-size: 106%; }
 </style>
 </head>
 <body>
-
-<table id="table" cellpadding="3" cellspacing="3" border="0">
+<div id="table">
 <div class="row">
     <div class="d"></div>
     <div class="d">1</div>
@@ -1027,7 +1026,7 @@ h1 { font-size: 106%; }
     <div alt="18" class="e"></div>
     <div alt="19" class="e"></div>
     <div alt="20" class="e"></div>
-    <div alt="21" class="b d" style="color: gold"><i class="fas fa-sun"></i></div>
+    <div alt="21" class="b d"><i class="fas fa-sun" style="color: gold"></i></div>
     <div alt="22" class="e"></div>
     <div alt="23" class="e"></div>
     <div alt="24" class="e"></div>
@@ -1951,20 +1950,16 @@ h1 { font-size: 106%; }
     <label><input type="radio" name="symbol" value="STS"> Лестница каменная</label><br />
     <label><input type="radio" name="symbol" value="STW"> Лестница деревянная</label><br />
     <br />
-    <label><input type="radio" name="symbol" value="A"> A - Кузня</label><br />
+    <label><input type="radio" name="symbol" value="S"> S - Кузня</label><br />
+    <label><input type="radio" name="symbol" value="A"> A - Наковальня</label><br />
     <label><input type="radio" name="symbol" value="X"> X - Вход</label><br />
     <label><input type="radio" name="symbol" value="W"> W - Колодец</label><br />
     <label><input type="radio" name="symbol" value="T"> T - Торговая лавка</label><br />
-    <label><input type="radio" name="symbol" value="S"> S - Кузня</label><br />
     <label><input type="radio" name="symbol" value="K"> K - Печь</label><br />
     <label><input type="radio" name="symbol" value="P"> P - Большой котёл</label><br />
-    
-
-
 </form>
 </div>
 <script>
-<!--
 var legendForm = document.getElementById("legendForm");
 var form = document.getElementById("form");
 var elt = null;

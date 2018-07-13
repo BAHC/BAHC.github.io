@@ -1,7 +1,19 @@
 <?php
+$_version = 'v.4';
+require CMSIF_MODULES.'/map.php';
+require CMSIF_FILES.'/map_default.php';
 
-$s_out = '<h1>Town</h1>';
-renderBlock($s_out);
+$s_out =  '';
+foreach($_map as $_i=>$_row){
+    $s_out .= getRow($_i, $_row);
+}
+renderBlock($s_out, 'table');
 
-asset('town.css');
+$s_out = fileRead('map_interface.html');
+renderBlock($s_out, 'legendForm');
+
+assetExternal('https://use.fontawesome.com/releases/v5.1.0/css/all.css', ['integrity'=>'sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt', 'crossorigin'=>'anonymous']);
+asset('town.css',['version'=>$_version]);
+asset('town.js',['version'=>$_version]);
+
 renderHTML('main');

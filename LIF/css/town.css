@@ -1,6 +1,6 @@
 * { font-family: Verdana, sans-serif }
 
-h1 { font-size: 106%; }
+h1 { font-size: 15px; }
 
 .row {
     display: table;
@@ -9,7 +9,9 @@ h1 { font-size: 106%; }
     padding: 0;
 }
 
-.d, .f, .r, .w, x, .e, .b, .c, .g, .hg, .tr, .ws, .ww, .sld { 
+.d, .f, .r, .w, x, .e, .b, .c, .g, 
+.hg, .tr, .ws, .ww, .sld 
+{ 
     display: table-cell;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -51,6 +53,10 @@ h1 { font-size: 106%; }
 
 .e:hover {
     background-color: #EFEFEF; 
+}
+
+.north_cell, .south_cell, .west_cell, .east_cell { 
+    background-color: #EEEEEE; border: 1px solid #CCCCCC; font-weight: 500;
 }
 
 #legendForm {
