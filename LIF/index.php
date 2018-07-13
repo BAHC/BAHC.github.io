@@ -1,5 +1,5 @@
 <?php
-//define('CMSIF_ASSETS', '/lif/');
+define('CMSIF_ASSETS', '/lif/');
 require __DIR__.'/cmsif.php';
 
 init();
