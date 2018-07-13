@@ -5,4 +5,6 @@
 <div class="alert">
 <?=$_content?>
 </div>
+
 </body>
+</html>

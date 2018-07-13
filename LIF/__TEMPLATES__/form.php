@@ -3,4 +3,6 @@
 </head>
 <body>
 <?=$_content?>
+
 </body>
+</html>
