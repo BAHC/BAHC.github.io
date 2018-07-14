@@ -1,5 +1,5 @@
 <?php
-define('CMSIF_ASSETS', '/lif/');
+//define('CMSIF_ASSETS', '/lif/'); //if your project live in subdirectory
 require __DIR__.'/cmsif.php';
 
 init();

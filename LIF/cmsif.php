@@ -820,13 +820,17 @@ function asset($_asset = '', $_opt=[])
 
         if(file_exists($_file_path) && is_readable($_file_path))
         {
+            $_options  = $_media? ' media="'.$_media.'"':'';
+            $_options .= $_integrity? ' integrity="'.$_integrity.'"':'';
+            $_options .= $_crossorigin? ' crossorigin="'.$_crossorigin.'"':'';
+
             switch($_ext)
             {
                 case 'css':
-                    $_out = '<link rel="stylesheet" type="text/css" href="'. $_file_url .'"'. ($_media ? ' media="'. $_media .'"' : '') .'>';
+                    $_out = '<link rel="stylesheet" type="text/css" href="'. $_file_url .'"'. $_options .'>';
                     break;
                 case 'js':
-                    $_out = '<script src="'. $_file_url .'"></script>';
+                    $_out = '<script language="javascript" src="'. $_file_url .'"'.$_options.'></script>';
                     break;
                 default:
                     break;

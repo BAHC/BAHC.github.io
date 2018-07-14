@@ -9,6 +9,13 @@ h1 { font-size: 15px; }
     padding: 0;
 }
 
+.text {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .d, .f, .r, .w, x, .e, .b, .c, .g, 
 .hg, .tr, .ws, .ww, .sld 
 { 
