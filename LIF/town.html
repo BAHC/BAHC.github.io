@@ -3,9 +3,10 @@
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
 <head>
+<meta name="author" value="github.com/BAHC">
 <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/LIF/css/town.css?v.4">
-<script src="/LIF/js/town.js?v.4"></script></head>
+<link rel="stylesheet" type="text/css" href="/LIF/css/town.css?v.4.5">
+<script language="javascript" src="/LIF/js/town.js?v.4.5"></script></head>
 <body>
 <div id="table"><div class="row">
     <div class="e d"><i class="far fa-arrow-alt-circle-down"></i></div>
@@ -1942,35 +1943,158 @@
     <div alt="41" class="d">41</div>
 
     <div class="e d"><i class="far fa-arrow-alt-circle-up"></i></div></div>
-</div>
-<div id="legendForm">
-    <h1>LIF:MMO Town Claim Map Editor</h1>
-    <form id="form">
-        <label><input type="radio" name="symbol" value="E" checked="checked"> Свободно</label><br />
-        <label><input type="radio" name="symbol" value="B"> Заблокировано</label><br />
-        <label><input type="radio" name="symbol" value="С"> Постройка</label><br />
-        <label><input type="radio" name="symbol" value="R"> Дорога</label><br />
-        <label><input type="radio" name="symbol" value="F"> Поле</label><br />
-        <label><input type="radio" name="symbol" value="HG"> Огород</label><br />
-        <label><input type="radio" name="symbol" value="TR"> Дерево</label><br />
-    
-        <label><input type="radio" name="symbol" value="H"> H - Дом</label><br />
-        <label><input type="radio" name="symbol" value="M"> M - Ров</label><br />
-        <label><input type="radio" name="symbol" value="G"> G - Ворота</label><br />
-        <br />
-        <label><input type="radio" name="symbol" value="WS"> Стена каменная</label><br />
-        <label><input type="radio" name="symbol" value="WW"> Стена деревянная</label><br />
-        <label><input type="radio" name="symbol" value="STS"> Лестница каменная</label><br />
-        <label><input type="radio" name="symbol" value="STW"> Лестница деревянная</label><br />
-        <br />
-        <label><input type="radio" name="symbol" value="S"> S - Кузня</label><br />
-        <label><input type="radio" name="symbol" value="A"> A - Наковальня</label><br />
-        <label><input type="radio" name="symbol" value="X"> X - Вход</label><br />
-        <label><input type="radio" name="symbol" value="W"> W - Колодец</label><br />
-        <label><input type="radio" name="symbol" value="T"> T - Торговая лавка</label><br />
-        <label><input type="radio" name="symbol" value="K"> K - Печь</label><br />
-        <label><input type="radio" name="symbol" value="P"> P - Большой котёл</label><br />
-    </form>
-</div>
+</div><div id="legendForm">    <h1>LIF:MMO Town Claim Map Editor</h1>
+    <p class="text"><small>v.04</small></p>
+    <div id="mapForm">
+        <form id="form">
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="E" checked="checked">
+                    <span class="d"></span>
+                    <span class="cell">&nbsp;Свободно</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="B">
+                    <span class="b"></span>
+                    <span class="cell">&nbsp;Заблокировано</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="C">
+                    <span class="c"></span>
+                    <span class="cell">&nbsp;Постройка</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="R">
+                    <span class="r"></span>
+                    <span class="cell">&nbsp;Дорога</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="F">
+                    <span class="f"></span>
+                    <span class="cell">&nbsp;Поле</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="HG">
+                    <span class="hg"><i class="fab fa-pagelines"></i></span>
+                    <span class="cell">&nbsp;Огород</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="TR">
+                    <span class="tr"><i class="fas fa-tree"></i></span>
+                    <span class="cell">&nbsp;Дерево</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="H">
+                    <span class="c">H</span>
+                    <span class="cell">&nbsp;Дом</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="M">
+                    <span class="g">M</span>
+                    <span class="cell">&nbsp;Ров</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="G">
+                    <span class="c">G</span>
+                    <span class="cell">&nbsp;Ворота</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="WS">
+                    <span class="ws"></span>
+                    <span class="cell">&nbsp;Стена каменная</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="STS">
+                    <span class="ws"><i class="fas fa-bars" style="color: #FFFFFF"></i></span>
+                    <span class="cell">&nbsp;Лестница камен.</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="WW">
+                    <span class="ww"></span>
+                    <span class="cell">&nbsp;Стена дерев.</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="STW">
+                    <span class="ww"><i class="fas fa-bars" style="color: #FFFFFF"></i></span>
+                    <span class="cell">&nbsp;Лестница дерев.</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="S">
+                    <span class="c">S</span>
+                    <span class="cell">&nbsp;Кузня</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="A">
+                    <span class="c">A</span>
+                    <span class="cell">&nbsp;Наковальня</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="X">
+                    <span class="c">X</span>
+                    <span class="cell">&nbsp;Вход</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="W">
+                    <span class="w">W</span>
+                    <span class="cell">&nbsp;Колодец</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="T">
+                    <span class="c">T</span>
+                    <span class="cell">&nbsp;Торговая лавка</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="K">
+                    <span class="c">K</span>
+                    <span class="cell">&nbsp;Печь</span>
+                </label>
+            </div>
+            <div class="row-form">
+                <label>
+                    <input type="radio" name="symbol" value="P">
+                    <span class="c">P</span>
+                    <span class="cell">&nbsp;Большой котёл</span>
+                </label>
+            </div>
+        </form>
+    </div></div>
 </body>
 </html>
