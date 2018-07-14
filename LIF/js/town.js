@@ -32,7 +32,7 @@ function ready()
                         elt.classList.add('b');
                         break;
 
-                    case 'С':
+                    case 'C':
                         elt.innerHTML = '&nbsp;';
                         elt.classList.add('c');
                         break;
@@ -212,7 +212,7 @@ function ready()
                 elt_prev = this;
                 elt.classList.add('sld');
 
-                if ("М" != this.innerText && false === elt.classList.contains("d"))
+                if (false === elt.classList.contains("d"))
                 {
                     legendForm.style.display = 'block';
                     formSubmit();
