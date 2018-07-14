@@ -1,16 +1,26 @@
 <?php
 
+function mapView($_map=[])
+{
+    $s_out = '';
+    if(is_array($_map) && count($_map))
+    {
+        foreach($_map as $_i=>$_row)
+        {
+            $s_out .= getRow($_i, $_row);
+        }
+    }
+    return $s_out;
+}
+
 function getRow($_i, $_opt=[])
 {
     $_out = '';
-    if(is_array($_opt))
+    if(is_array($_opt) && 41 == count($_opt))
     {
-        if( 41 == count($_opt))
+        foreach($_opt as $i=>$_col)
         {
-            foreach($_opt as $i=>$_col)
-            {
-                $_out .= getCol($i, $_col[0], $_col[1]);
-            }
+            $_out .= getCol($i, $_col[0], $_col[1]);
         }
     }
     

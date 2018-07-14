@@ -3,10 +3,7 @@ $_version = 'v.4.5';
 require CMSIF_MODULES.'/map.php';
 require CMSIF_FILES.'/map_default.php';
 
-$s_out =  '';
-foreach($_map as $_i=>$_row){
-    $s_out .= getRow($_i, $_row);
-}
+$s_out =  mapView($_map);
 renderBlock($s_out, 'table');
 
 $s_out = fileRead('map_interface.html');
