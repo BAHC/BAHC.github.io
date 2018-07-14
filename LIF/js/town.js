@@ -109,7 +109,6 @@ function ready()
 
                     case 'R':
                         elt.innerHTML = '&nbsp;';
-                        elt.classList.remove('e');
                         elt.classList.add('r');
                         break;
 
@@ -123,13 +122,32 @@ function ready()
                         elt.classList.add('c');
                         break;
 
+                    case 'U':
+                        elt.innerHTML = Radio[i].value;
+                        elt.classList.add('c');
+                        break;
+
+                    case 'V':
+                        elt.innerHTML = Radio[i].value;
+                        elt.classList.add('c');
+                        break;
+
                     case 'W':
                         elt.innerHTML = Radio[i].value;
-                        elt.classList.remove('e');
                         elt.classList.add('w');
                         break;
 
                     case 'X':
+                        elt.innerHTML = Radio[i].value;
+                        elt.classList.add('c');
+                        break;
+
+                    case 'Y':
+                        elt.innerHTML = Radio[i].value;
+                        elt.classList.add('c');
+                        break;
+
+                    case 'Z':
                         elt.innerHTML = Radio[i].value;
                         elt.classList.add('c');
                         break;
@@ -158,17 +176,16 @@ function ready()
                         elt.innerHTML = '<i class="fas fa-mortar-pestle"></i>';
                         elt.classList.add('al');
                         break;
-                    
+
                     case 'STS':
                         elt.innerHTML = '<i class="fas fa-bars" style="color: #FFFFFF"></i>';
                         elt.classList.add('ws');
                         break;
-                    
+
                     case 'STW':
                         elt.innerHTML = '<i class="fas fa-bars" style="color: #FFFFFF"></i>';
                         elt.classList.add('ww');
                         break;
-
                 }
             }
         }

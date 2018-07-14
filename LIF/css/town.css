@@ -1,8 +1,8 @@
 * { font-family: Verdana, sans-serif }
 
-h1 { font-size: 15px; }
+h1 { font-size: 15px; padding: 0; margin: 0; }
 
-.row {
+.row, .row-form {
     display: table;
     box-sizing: border-box;
     margin: 0; 
@@ -17,7 +17,7 @@ h1 { font-size: 15px; }
 }
 
 .d, .f, .r, .w, x, .e, .b, .c, .g, 
-.hg, .tr, .ws, .ww, .sld 
+.hg, .tr, .ws, .ww, .sld, .cell
 { 
     display: table-cell;
     box-sizing: border-box;
@@ -38,6 +38,8 @@ h1 { font-size: 15px; }
     text-align: center;
     cursor: hand;
 }
+
+.cell { width: 110px; text-align: left; font-size: 11px; }
 
 .r { background-color: #999999; }
 .f { background-color: #F5DEB3; } 
@@ -78,3 +80,8 @@ h1 { font-size: 15px; }
 
 #close { cursor: hand; position: absolute; right: 10px; }
 #form { font-size: 11px; }
+
+#mapForm {
+    height: 400px;
+    overflow-y: scroll;
+}
