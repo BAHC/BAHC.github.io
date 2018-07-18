@@ -3,24 +3,30 @@
 function mapView($_map=[])
 {
     $s_out = '';
+    $_rid = 1;
     if(is_array($_map) && count($_map))
     {
         foreach($_map as $_i=>$_row)
         {
-            $s_out .= getRow($_i, $_row);
+            $_row_out = getRow($_rid, $_i, $_row);
+            if (!empty($_row_out))
+            {
+                $s_out .= $_row_out;
+                $_rid++;
+            }
         }
     }
     return $s_out;
 }
 
-function getRow($_i, $_opt=[])
+function getRow($_rid, $_i, $_opt=[])
 {
     $_out = '';
     if(is_array($_opt) && 41 == count($_opt))
     {
         foreach($_opt as $i=>$_col)
         {
-            $_out .= getCol($i, $_col[0], $_col[1]);
+            $_out .= getCol($_rid, $i, $_col[0], $_col[1]);
         }
     }
     
@@ -44,8 +50,8 @@ function getRow($_i, $_opt=[])
     return $_out;
 }
 
-function getCol($_i, $_cell=[], $_val='&nbsp;')
+function getCol($_rid, $_i, $_cell=[], $_val='&nbsp;')
 {
-    $_out = '    <div alt="'. $_i .'" class="'. implode(' ', $_cell).'">'. $_val .'</div>'. EOL;
+    $_out = '    <div alt="r'. $_rid .'_c'. $_i .'" class="'. implode(' ', $_cell).'">'. $_val .'</div>'. EOL;
     return $_out;
 }

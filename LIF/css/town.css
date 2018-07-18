@@ -2,6 +2,11 @@
 
 h1 { font-size: 15px; padding: 0; margin: 0; }
 
+.saveMap {
+    cursor: pointer;
+    text-align: center;
+}
+
 .row, .row-form {
     display: table;
     box-sizing: border-box;
@@ -81,7 +86,71 @@ h1 { font-size: 15px; padding: 0; margin: 0; }
 #close { cursor: hand; position: absolute; right: 10px; }
 #form { font-size: 11px; }
 
+body {
+    margin: 0;
+}
+
+#header {
+    padding: 20px;
+}
+
+#navbar {
+overflow: hidden;
+background-color: #333;
+}
+
+#navbar a {
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 17px;
+}
+
+#navbar a:hover {
+background-color: #ddd;
+color: black;
+}
+
+#navbar a.active {
+background-color: #4CAF50;
+color: white;
+}
+
+.content {
+padding: 16px;
+}
+
+.sticky {
+position: fixed;
+top: 0;
+width: 100%
+}
+
+.sticky + .content {
+padding-top: 60px;
+}
+
+
 #mapForm {
     height: 400px;
     overflow-y: scroll;
+}
+
+.mapTitle {
+    font-size: 120%;
+    border: none;
+    width: 700px;
+    padding: 6px;
+}
+
+.mapPassword {
+    float: left;
+    display: block;
+    margin-top: 8px;
+    margin-left: 8px;
+    padding: 3px;
+    height: 20px;
 }

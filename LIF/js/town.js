@@ -5,6 +5,7 @@ function ready()
     var elt = null;
     var elt_prev = null;
     var classes = ['e', 'c', 'b', 'g', 'w', 'f', 'r', 'hg', 'ws', 'ww', 'sld'];
+    var mapA = new Object;
 
     var removeClasses = function(elt, clss)
     {
@@ -187,6 +188,12 @@ function ready()
                         elt.classList.add('ww');
                         break;
                 }
+
+                var eltObj = new Object;
+                eltObj.name = elt.getAttribute('alt');
+                eltObj.classes =  elt.classList.value;
+                eltObj.content = encodeURI(elt.innerHTML);
+                mapA[ elt.getAttribute('alt') ] = eltObj;
             }
         }
         return false;
@@ -200,7 +207,6 @@ function ready()
         tds = trs[i].getElementsByTagName("div");
         for(var n=0; n<trs.length;n++)
         {
-
             tds[n].onclick=function() 
             {
                 if(null !== elt_prev)
@@ -226,6 +232,35 @@ function ready()
         }
     }
 
+    var saveBtn = document.getElementById("saveMap");
+    saveBtn.onclick=function()
+    {
+        var url = '/town/'+ getMapId();
+        var mapTitle = document.getElementById("mapTitle").value;
+        var mapPassword = document.getElementById("mapPassword").value;
+        var json = JSON.stringify({ 
+            "mapTitle": mapTitle, 
+            "mapData": mapA, 
+            "mapPassword": mapPassword 
+        });
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function()
+        {
+            if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            {
+                var resp = JSON.parse( xmlHttp.responseText );
+                if((resp.town));
+                {
+                    location.assign( '/town/' + resp.town );
+                }
+            }
+        }
+        xmlHttp.open("POST", url);
+        xmlHttp.setRequestHeader('X-Requested-With','XMLHttpRequest');
+        xmlHttp.setRequestHeader('Content-type','application/json');
+        xmlHttp.send(json);
+    }
+
     var hoverdiv = function(e)
     {
         var left  = (e.clientX + 21)  + "px";
@@ -236,6 +271,14 @@ function ready()
         legendForm.style.top = top;
 
         return false;
+    }
+
+    var getMapId = function()
+    {
+        //+(0<mapId)?mapId:'';
+        var mapId = document.getElementById("mapId");
+        console.log('MAP ID: '+ mapId);
+        return parseInt(mapId.value);
     }
 }
 
