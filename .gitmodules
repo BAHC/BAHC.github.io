@@ -1,0 +1,3 @@
+[submodule "cmsif"]
+	path = /vendors/cmsif
+	url = https://github.com/BAHC/cmsif/
