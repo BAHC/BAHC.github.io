@@ -1,5 +1,5 @@
 <?php
-$_version = 'v.4.'.(time()%100);
+$_version = 'v.5.'.(time()%100);
 require CMSIF_MODULES.'/map.php';
 require CMSIF_FILES.'/map_default.php';
 
