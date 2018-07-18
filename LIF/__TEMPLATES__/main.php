@@ -12,6 +12,10 @@
 <?=$_navigation?>
 <a id="saveMap" class="active" href="javascript:void(0)">Сохранить</a>
 <input id="mapPassword" class="mapPassword" type="password" name="mapPassword">
+<div id="mapMessages">
+    <div id="mapInfo"></div>
+    <div id="mapError"></div>
+</div>
 </div>
 
 <div class="content">

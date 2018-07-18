@@ -7,10 +7,44 @@ function ready()
     var classes = ['e', 'c', 'b', 'g', 'w', 'f', 'r', 'hg', 'ws', 'ww', 'sld'];
     var mapA = new Object;
 
+    //Remove only  classes
     var removeClasses = function(elt, clss)
     {
         clss.forEach(function(element) {elt.classList.remove(element)});
     }
+
+    var setMapElement = function(elt)
+    {
+        var eltObj = new Object;
+        eltObj.name = elt.getAttribute('id');
+        eltObj.classes =  elt.classList.value;
+        eltObj.content = encodeURI(elt.innerHTML);
+        mapA[ eltObj.name ] = eltObj;
+    }
+
+    var setCell = function(id="r1_c1", _classes="d", content="")
+    {
+        var mapCell = document.getElementById(id);
+        var cellClasses = _classes.split(' ');
+        removeClasses(mapCell, classes);
+        if(1 < cellClasses.length){
+            cellClasses.forEach( function(n) { mapCell.classList.add(n) } );
+        } else {
+            mapCell.classList.add(cellClasses);
+        }
+
+        mapCell.innerHTML = decodeURI(content);
+        setMapElement(mapCell);
+    }
+
+    var mapName = window.getMapName();
+    var mapTitle = document.getElementById('mapTitle');
+    mapTitle.value = mapName;
+
+    var mapCells = window.getReadyMap();
+    mapCells.forEach(function(elt){
+        setCell(elt.id, elt.classes, elt.content);
+    });
 
     var formSubmit = function()
     {
@@ -189,11 +223,7 @@ function ready()
                         break;
                 }
 
-                var eltObj = new Object;
-                eltObj.name = elt.getAttribute('alt');
-                eltObj.classes =  elt.classList.value;
-                eltObj.content = encodeURI(elt.innerHTML);
-                mapA[ elt.getAttribute('alt') ] = eltObj;
+                setMapElement(elt);
             }
         }
         return false;
@@ -249,10 +279,23 @@ function ready()
             if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
             {
                 var resp = JSON.parse( xmlHttp.responseText );
-                if((resp.town));
+                var errorBlk = document.getElementById("mapError");
+                var infoBlk = document.getElementById("mapInfo");
+                errorBlk.innerText = "";
+                infoBlk.innerText = "";
+                if( resp.error && "undefined" !== resp.error  )
                 {
-                    location.assign( '/town/' + resp.town );
+                    errorBlk.innerText = resp.error;
                 }
+                else if("true" == resp.new)
+                {
+                    location.assign( url );
+                }
+                else
+                {
+                    infoBlk.innerText = 'Saved';
+                }
+                
             }
         }
         xmlHttp.open("POST", url);
@@ -277,7 +320,6 @@ function ready()
     {
         //+(0<mapId)?mapId:'';
         var mapId = document.getElementById("mapId");
-        console.log('MAP ID: '+ mapId);
         return parseInt(mapId.value);
     }
 }

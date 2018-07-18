@@ -45,12 +45,14 @@ if(!is_null($_file))
 }
 else
 {
+    $_out['new'] = 'true';
     if(is_null($_file_password) && !is_null($_password))
     {
         $_write = true;
-        $_out['town'] = $_town_id;
     }
 }
+
+$_out['town'] = $_town_id;
 
 if(true === $_write)
 {
@@ -59,11 +61,11 @@ if(true === $_write)
         $_town['pass'] = $_password;
     }
     fileWrite($_file_link, $_town, 'json');
-    $_out['success'] = 'success';
+    $_out['success'] = 'Success';
 }
 else
 {
-    $_out['error'] = 'error';
+    $_out['error'] = 'Error';
 }
 
 if(count($_out)) {

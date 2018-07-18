@@ -52,6 +52,6 @@ function getRow($_rid, $_i, $_opt=[])
 
 function getCol($_rid, $_i, $_cell=[], $_val='&nbsp;')
 {
-    $_out = '    <div alt="r'. $_rid .'_c'. $_i .'" class="'. implode(' ', $_cell).'">'. $_val .'</div>'. EOL;
+    $_out = '    <div id="r'. $_rid .'_c'. $_i .'" class="'. implode(' ', $_cell).'">'. $_val .'</div>'. EOL;
     return $_out;
 }
