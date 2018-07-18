@@ -10,8 +10,9 @@
 
 <div id="navbar">
 <?=$_navigation?>
+<a id="mapNew" href="/town/"><i class="fas fa-plus-square"></i></a>
 <a id="saveMap" class="active" href="javascript:void(0)">Сохранить</a>
-<input id="mapPassword" class="mapPassword" type="password" name="mapPassword">
+<i id="mapKey" class="fas fa-key"></i><input id="mapPassword" class="mapPassword" type="password" name="mapPassword">
 <div id="mapMessages">
     <div id="mapInfo"></div>
     <div id="mapError"></div>

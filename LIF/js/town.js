@@ -293,7 +293,7 @@ function ready()
                 }
                 else
                 {
-                    infoBlk.innerText = 'Saved';
+                    infoBlk.innerText = 'Saved ' + getMapId();
                 }
                 
             }
