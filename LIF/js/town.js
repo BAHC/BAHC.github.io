@@ -4,7 +4,16 @@ function ready()
     var form = document.getElementById("form");
     var elt = null;
     var elt_prev = null;
-    var classes = ['e', 'c', 'b', 'g', 'w', 'f', 'r', 'hg', 'ws', 'ww', 'sld'];
+    var classes = new Array(
+        'e', 'c', 'b', 'g', 'w', 'f', 'r', 'hg', 'ws', 'ww', 'sld'
+    );
+    var classesColor = new Array(
+        'ca', 'cb', 'cc', 'cd', 'ce', 
+        'cf', 'cg', 'ch', 'ci', 'cj', 
+        'ck', 'cl', 'cm', 'cn', 'co', 
+        'cp', 'cq', 'cr', 'cs', 'ct', 
+        'cu', 'cv', 'cw', 'cx', 'cy', 
+        'cz');
     var mapA = new Object;
 
     //Remove only  classes
@@ -46,6 +55,13 @@ function ready()
         setCell(elt.id, elt.classes, elt.content);
     });
 
+    var decorateCell = function(elt, _value, _class, _classes)
+    {
+        removeClasses(elt, _classes);
+        elt.innerHTML = _value;
+        elt.classList.add(_class);
+    }
+
     var formSubmit = function()
     {
         var Radio = form.elements["symbol"];
@@ -54,173 +70,173 @@ function ready()
         {
             if(Radio[i].checked)
             {
-                removeClasses(elt, classes);
+                
                 switch(Radio[i].value)
                 {
                     case 'A':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'B':
-                        elt.innerHTML = '&nbsp;';
-                        elt.classList.add('b');
+                        decorateCell(elt, '&nbsp;', 'b', classes);
                         break;
 
                     case 'C':
-                        elt.innerHTML = '&nbsp;';
-                        elt.classList.add('c');
+                        decorateCell(elt, '&nbsp;', 'c', classes);
                         break;
 
                     case 'D':
-                        elt.innerHTML = '&nbsp;';
-                        elt.classList.add('c');
+                        decorateCell(elt, '&nbsp;', 'd', classes);
                         break;
 
                     case 'E':
-                        elt.innerHTML = '&nbsp;';
-                        elt.classList.add('e');
+                        var _classes = classes.concat(classesColor);
+                        decorateCell(elt, '&nbsp;', 'e', _classes);
                         break;
 
                     case 'F':
-                        elt.innerHTML = '&nbsp;';
-                        elt.classList.add('f');
+                        decorateCell(elt, '&nbsp;', 'f', classes);
                         break;
 
                     case 'G':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'H':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'I':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'J':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'K':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'L':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'M':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('g');
+                        decorateCell(elt, Radio[i].value, 'g', classes);
                         break;
 
                     case 'N':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'O':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'P':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'Q':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'R':
-                        elt.innerHTML = '&nbsp;';
-                        elt.classList.add('r');
+                        decorateCell(elt, '&nbsp;', 'r', classes);
                         break;
 
                     case 'S':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'T':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'U':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'V':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'W':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('w');
+                        decorateCell(elt, Radio[i].value, 'w', classes);
                         break;
 
                     case 'X':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'Y':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'Z':
-                        elt.innerHTML = Radio[i].value;
-                        elt.classList.add('c');
+                        decorateCell(elt, Radio[i].value, 'c', classes);
                         break;
 
                     case 'HG':
-                        elt.innerHTML = '<i class="fab fa-pagelines"></i>';
-                        elt.classList.add('hg');
+                        decorateCell(elt, '<i class="fab fa-pagelines"></i>', 'hg', classes);
                         break;
 
                     case 'TR':
-                        elt.innerHTML = '<i class="fas fa-tree"></i>';
-                        elt.classList.add('hg');
+                        decorateCell(elt, '<i class="fas fa-tree"></i>', 'hg', classes);
                         break;
 
                     case 'WS':
-                        elt.innerHTML = '&nbsp;';
-                        elt.classList.add('ws');
+                        decorateCell(elt, '&nbsp;', 'ws', classes);
                         break;
 
                     case 'WW':
-                        elt.innerHTML = '&nbsp;';
-                        elt.classList.add('ww');
+                        decorateCell(elt, '&nbsp;', 'ww', classes);
                         break;
 
                     case 'AL':
-                        elt.innerHTML = '<i class="fas fa-mortar-pestle"></i>';
-                        elt.classList.add('al');
+                        decorateCell(elt, '<i class="fas fa-mortar-pestle"></i>', 'al', classes);
                         break;
 
                     case 'STS':
-                        elt.innerHTML = '<i class="fas fa-bars" style="color: #FFFFFF"></i>';
-                        elt.classList.add('ws');
+                        decorateCell(elt, '<i class="fas fa-bars"></i>', 'ws', classes);
                         break;
 
                     case 'STW':
-                        elt.innerHTML = '<i class="fas fa-bars" style="color: #FFFFFF"></i>';
-                        elt.classList.add('ww');
+                        decorateCell(elt, '<i class="fas fa-bars"></i>', 'ww', classes);
                         break;
+                    
+                    case 'CA':
+                    case 'CB':
+                    case 'CD':
+                    case 'CC':
+                    case 'CD':
+                    case 'CE':
+                    case 'CF':
+                    case 'CG':
+                    case 'CH':
+                    case 'CI':
+                    case 'CJ':
+                    case 'CK':
+                    case 'CL':
+                    case 'CM':
+                    case 'CN':
+                    case 'CO':
+                    case 'CP':
+                    case 'CQ':
+                    case 'CR':
+                    case 'CS':
+                    case 'CT':
+                    case 'CU':
+                    case 'CV':
+                    case 'CW':
+                    case 'CX':
+                    case 'CY':
+                    case 'CZ':
+                        var _value = Radio[i].value;
+                        decorateCell(elt, elt.innerHTML, _value.toLowerCase(), ['sld'].concat(classesColor));
+                        break;
+                    default:
                 }
 
                 setMapElement(elt);

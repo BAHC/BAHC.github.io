@@ -55,8 +55,8 @@ h1 { font-size: 15px; padding: 0; margin: 0; }
 .g { background-color: #EFEFEF; }
 .hg { background-color: #66DD66; }
 .tr { background-color: #33EE33; }
-.ws { background-color: #666666; }
-.ww { background-color: #6D6036; }
+.ws { background-color: #666666; color: #FFFFFF; }
+.ww { background-color: #6D6036; color: #FFFFFF; }
 
 .tb { border-top: 1px solid red; }
 .bb { border-bottom: 1px solid red; }
@@ -179,3 +179,84 @@ padding-top: 60px;
     padding: 10px!important;
     font-size: 22px!important;
 }
+	
+
+.ca { background-color: #FF3855 }
+.cb { background-color: #FD3A4A }
+.cc { background-color: #FB4D46 }
+.cd { background-color: #FA5B3D }
+.ce { background-color: #FFAA1D }
+.cf { background-color: #FFF700 }
+.cg { background-color: #299617}
+.ch { background-color: #A7F432 }
+.ci { background-color: #2243B6 }
+.cj { background-color: #5DADEC }
+.ck { background-color: #5946B2 }
+.cl { background-color: #9C51B6 }
+.cm { background-color: #A83731 }
+.cn { background-color: #AF6E4D }
+.co { background-color: #1B1B1B }
+.cp { background-color: #BFAFB2 }
+.cq { background-color: #FF5470 }
+.cr { background-color: #FFDB00 }
+.cs { background-color: #FF7A00 }
+.ct { background-color: #FDFF00 }
+.cu { background-color: #87FF2A }
+.cv { background-color: #87FF2A }
+.cw { background-color: #0048BA }
+.cx { background-color: #0048BA }
+.cy { background-color: #FF007C }
+.cz { background-color: #E936A7 }
+
+
+label.radiobox {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radiobox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.cbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 19px;
+    width: 19px;
+    border-radius: 50%;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.cbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radiobox input:checked ~ .cbox:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radiobox .cbox:after {
+ 	top: 7px;
+	left: 7px;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: white;
+}
+
+.colors { height: 25px; }

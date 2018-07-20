@@ -3,7 +3,7 @@ $_version = 'v.5.'.(time()%100);
 require CMSIF_MODULES.'/map.php';
 require CMSIF_FILES.'/map_default.php';
 
-$_town_id = time();
+$_town_id = substr(time(), -5, 5);
 if(isset($_matches) && isset($_matches[1]))
 {
     $_town_id = (int) $_matches[1];
@@ -19,7 +19,8 @@ renderBlock($s_out, 'legendForm');
 
 
 $s_out = '';
-$_mapData = fileRead('_towns/id'.$_town_id.'.json', 'json');
+$_file_link = '_towns/id'. sprintf('%010d', $_town_id) .'.json';
+$_mapData = fileRead($_file_link, 'json');
 $s_name = '';
 $s_cells = [];
 if(is_array($_mapData))
