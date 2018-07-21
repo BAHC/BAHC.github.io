@@ -5,7 +5,7 @@ function ready()
     var elt = null;
     var elt_prev = null;
     var classes = new Array(
-        'e', 'c', 'b', 'g', 'w', 'f', 'r', 'hg', 'ws', 'ww', 'sld'
+        'e', 'c', 'b', 'g', 'w', 'f', 'r', 'hg', 'ws', 'ww', 'sld', 'lt'
     );
     var classesColor = new Array(
         'ca', 'cb', 'cc', 'cd', 'ce', 
@@ -183,6 +183,9 @@ function ready()
 
                     case 'TR':
                         decorateCell(elt, '<i class="fas fa-tree"></i>', 'hg', _classes);
+                        break;
+                    case 'LT':
+                        decorateCell(elt, '<i class="far fa-lightbulb"></i>', 'lt', _classes);
                         break;
 
                     case 'WS':
