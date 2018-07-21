@@ -260,3 +260,24 @@ label.radiobox {
 }
 
 .colors { height: 25px; }
+
+.r, .f, .w, .c, .g,
+.hg, .tr, .ws, .ww,
+.ca, .cb, .cc, .cd, .ce, .cf, .cg, .ch, 
+.ci, .cj, .ck, .cl, .cm, .cn, .co, .cp,
+.cq, .cr, .cs, .ct, .cu, .cv, .cw, .cx,
+.cy, .cz {
+    animation-duration: 1s;
+    animation-name: rotateY;
+    animation-iteration-count: 1;
+  }
+  
+@keyframes rotateY {
+    from {
+    }
+
+    to {
+        -webkit-transform: rotateY(360deg); /* Safari */
+        transform: rotateY(360deg);
+    }
+}

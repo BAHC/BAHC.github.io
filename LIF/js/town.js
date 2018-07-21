@@ -70,140 +70,139 @@ function ready()
         {
             if(Radio[i].checked)
             {
-                
+                var _classes = classes.concat(classesColor);
                 switch(Radio[i].value)
                 {
                     case 'A':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'B':
-                        decorateCell(elt, '&nbsp;', 'b', classes);
+                        decorateCell(elt, '&nbsp;', 'b', _classes);
                         break;
 
                     case 'C':
-                        decorateCell(elt, '&nbsp;', 'c', classes);
+                        decorateCell(elt, '&nbsp;', 'c', _classes);
                         break;
 
                     case 'D':
-                        decorateCell(elt, '&nbsp;', 'd', classes);
+                        decorateCell(elt, '&nbsp;', 'd', _classes);
                         break;
 
                     case 'E':
-                        var _classes = classes.concat(classesColor);
                         decorateCell(elt, '&nbsp;', 'e', _classes);
                         break;
 
                     case 'F':
-                        decorateCell(elt, '&nbsp;', 'f', classes);
+                        decorateCell(elt, '&nbsp;', 'f', _classes);
                         break;
 
                     case 'G':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'H':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'I':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'J':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'K':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'L':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'M':
-                        decorateCell(elt, Radio[i].value, 'g', classes);
+                        decorateCell(elt, Radio[i].value, 'g', _classes);
                         break;
 
                     case 'N':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'O':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'P':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'Q':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'R':
-                        decorateCell(elt, '&nbsp;', 'r', classes);
+                        decorateCell(elt, '&nbsp;', 'r', _classes);
                         break;
 
                     case 'S':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'T':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'U':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'V':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'W':
-                        decorateCell(elt, Radio[i].value, 'w', classes);
+                        decorateCell(elt, Radio[i].value, 'w', _classes);
                         break;
 
                     case 'X':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'Y':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'Z':
-                        decorateCell(elt, Radio[i].value, 'c', classes);
+                        decorateCell(elt, Radio[i].value, 'c', _classes);
                         break;
 
                     case 'HG':
-                        decorateCell(elt, '<i class="fab fa-pagelines"></i>', 'hg', classes);
+                        decorateCell(elt, '<i class="fab fa-pagelines"></i>', 'hg', _classes);
                         break;
 
                     case 'TR':
-                        decorateCell(elt, '<i class="fas fa-tree"></i>', 'hg', classes);
+                        decorateCell(elt, '<i class="fas fa-tree"></i>', 'hg', _classes);
                         break;
 
                     case 'WS':
-                        decorateCell(elt, '&nbsp;', 'ws', classes);
+                        decorateCell(elt, '&nbsp;', 'ws', _classes);
                         break;
 
                     case 'WW':
-                        decorateCell(elt, '&nbsp;', 'ww', classes);
+                        decorateCell(elt, '&nbsp;', 'ww', _classes);
                         break;
 
                     case 'AL':
-                        decorateCell(elt, '<i class="fas fa-mortar-pestle"></i>', 'al', classes);
+                        decorateCell(elt, '<i class="fas fa-mortar-pestle"></i>', 'al', _classes);
                         break;
 
                     case 'STS':
-                        decorateCell(elt, '<i class="fas fa-bars"></i>', 'ws', classes);
+                        decorateCell(elt, '<i class="fas fa-bars"></i>', 'ws', _classes);
                         break;
 
                     case 'STW':
-                        decorateCell(elt, '<i class="fas fa-bars"></i>', 'ww', classes);
+                        decorateCell(elt, '<i class="fas fa-bars"></i>', 'ww', _classes);
                         break;
                     
                     case 'CA':
@@ -334,7 +333,6 @@ function ready()
 
     var getMapId = function()
     {
-        //+(0<mapId)?mapId:'';
         var mapId = document.getElementById("mapId");
         return parseInt(mapId.value);
     }
