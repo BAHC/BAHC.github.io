@@ -1,5 +1,6 @@
 <?php
-$_version = 'v.6.'.(date('Ymdhi', time()));
+
+$_version = 'v.7.'.(date('Ymdhi', time()));
 require CMSIF_MODULES.'/map.php';
 require CMSIF_FILES.'/map_default.php';
 
@@ -16,7 +17,6 @@ renderBlock($s_out, 'table');
 $s_out = ($_town_id)? '<small>Town '. $_town_id.'</small>': '';
 $s_out .= fileRead('map_interface.html');
 renderBlock($s_out, 'legendForm');
-
 
 $s_out = '';
 $_file_link = '_towns/id'. sprintf('%010d', $_town_id) .'.json';

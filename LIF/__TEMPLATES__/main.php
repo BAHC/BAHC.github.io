@@ -5,14 +5,14 @@
 <body onscroll="myFunction()">
 
 <div id="header">
-    <input type="text" name="mapTitle" id="mapTitle" class="mapTitle" placeholder="Название города">
+    <input type="text" name="mapTitle" id="mapTitle" class="mapTitle" placeholder="Town name" title="Название города">
 </div>
 
 <div id="navbar">
 <?=$_navigation?>
-<a id="mapNew" href="/town/"><i class="fas fa-plus-square"></i></a>
-<a id="saveMap" class="active" href="javascript:void(0)">Сохранить</a>
-<i id="mapKey" class="fas fa-key"></i><input id="mapPassword" class="mapPassword" type="password" name="mapPassword">
+<a id="mapNew" href="/town/" title="Новый город / New Town"><i class="fas fa-plus-square"></i></a>
+<a id="saveMap" class="active" href="javascript:void(0)" title="Сохранить">Save</a>
+<i id="mapKey" class="fas fa-key"></i><input id="mapPassword" class="mapPassword" type="password" name="mapPassword" placeholder="Password">
 <div id="mapMessages">
     <div id="mapInfo"></div>
     <div id="mapError"></div>
