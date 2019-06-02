@@ -16,50 +16,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- Place your stylesheet here-->
-    <link href="/css/stylesheet.css" rel="stylesheet" type="text/css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" integrity="sha256-XwfUNXGiAjWyUGBhyXKdkRedMrizx1Ejqo/NReYNdUE=" crossorigin="anonymous" />
 </head>
 
 <body>
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
-
     <main role="main" class="container">
 
-        <div id="videoBg" class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-            <div id="jp_container_1" class="jp-video jp-video-720p" role="application" aria-label="media player">
+        <div class="row justify-content-center align-items-center">
+            <div id="jp_container_1" class="jp-video" role="application" aria-label="media player">
                 <div class="jp-type-single">
                     <div id="jquery_jplayer_1" class="jp-jplayer"></div>
                 </div>
@@ -72,15 +36,20 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <button id="slide-1">Slide 1</button>
+                    <button id="slide-1"></button>
                 </div>
                 <div class="swiper-slide">
-                    <button id="slide-2">Slide 2</button>
+                    <button id="slide-2"></button>
                 </div>
                 <div class="swiper-slide">
-                    <button id="slide-3">Slide 3</button>
+                    <button id="slide-3"></button>
                 </div>
-                ...
+                <div class="swiper-slide">
+                    <button id="slide-4"></button>
+                </div>
+                <div class="swiper-slide">
+                    <button id="slide-5"></button>
+                </div>
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
@@ -100,32 +69,27 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js" integrity="sha256-uckMYBvIGtce2L5Vf/mwld5arpR5JuhAEeJyjPZSUKY=" crossorigin="anonymous"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js" integrity="sha256-YAIw54P6OPiIkUJq8S3ayOEunEz/MiK2AxDY0oFLNBs=" crossorigin="anonymous"></script>
 
 <style media="screen">
-#videoBg {
-    text-align: center;
-    width: 100%;
-    height: 300px;
-    z-index: 0;
-}
 
 .swiper-container {
+    margin: auto;
     width: 100%;
-    height: 100px;
-    z-index: 1000;
+    height: 98vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
+
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background: none;
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -147,86 +111,89 @@
 .swiper-slide:nth-child(3n) {
     width: 10%;
 }
+
+.jp_video {
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+}
 </style>
 
 <script type="text/javascript">
-var myswiper = new Swiper('.swiper-container', {
-      slidesPerView: 1,
-      centeredSlides: true,
-      loop: true,
-      spaceBetween: 10,
 
-      pagination: {
+var player = {
+    timer: 0,
+    timers: [ 0, 5, 10, 15, 20 ]
+};
+
+var myswiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 10,
+
+    pagination: {
         el: '.swiper-pagination',
         clickable: true,
-      },
-
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-
-      // And if we need scrollbar
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    });
-
-/*
-var mySwiper = new Swiper ('.swiper-container', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
     },
 
-    // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
 
     // And if we need scrollbar
     scrollbar: {
-      el: '.swiper-scrollbar',
+        el: '.swiper-scrollbar',
     },
-})*/
+});
 
-  $(document).ready(function(){
+$(document).ready(function(){
     $("#jquery_jplayer_1").jPlayer({
-      ready: function () {
-        $(this).jPlayer("setMedia", {
-          title: "Big Buck Bunny Trailer",
-          //m4v: "Big_Buck_Bunny_Trailer.m4v",
-          m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
-          ogv: "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
-          webmv: "http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm",
-          poster: "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
-      })//.jPlayer("play");
-      },
-      cssSelectorAncestor: "#jp_container_1",
-      supplied: "m4v, ogv",
-      useStateClassSkin: false,
-      autoBlur: false,
-      smoothPlayBar: false,
-      keyEnabled: true,
-      remainingDuration: false,
-      toggleDuration: false,
-      position: 0
+        ready: function () {
+            $(this).jPlayer("setMedia", {
+                title: "Big Buck Bunny Trailer",
+                //m4v: "Big_Buck_Bunny_Trailer.m4v",
+                m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+                ogv: "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
+                webmv: "http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm",
+                poster: "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
+            }).jPlayer("width", "1980px");
+        },
+        cssSelectorAncestor: "#jp_container_1",
+        supplied: "m4v, ogv, webm",
+        size: {
+             width: "auto",
+             height: "100vh"
+        }
     });
 
-    var player = { timer: 0 };
+    player.startPlay = function() {
+        var startTime = player.timers[player.timer];
+        $('#slide-'+player.timer).html(startTime + 's');
+        $("#jquery_jplayer_1").jPlayer("play", startTime); // Begins playing N seconds into the media.
+        console.log(['#slide-'+player.timer, startTime]);
+    }
+
+    $("#jquery_jplayer_1").jPlayer("play", 0);
 
     $(".swiper-button-next").click( function() {
-        if(player.timer >= 15) player.timer = 0;
-        $("#jquery_jplayer_1").jPlayer("play", player.timer += 5); // Begins playing 10 seconds into the media.
+        if(player.timer == player.timers.length-1) {
+            player.timer = -1;
+        }
+        player.timer += 1;
+        player.startPlay();
     });
+
     $(".swiper-button-prev").click( function() {
-        if(player.timer == 0) player.timer = 20;
-        $("#jquery_jplayer_1").jPlayer("play", player.timer -= 5);
+        if(player.timer == 0) {
+            player.timer = player.timers.length;
+        }
+        player.timer -= 1;
+        player.startPlay();
     });
   });
 </script>
