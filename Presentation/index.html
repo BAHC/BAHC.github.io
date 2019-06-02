@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-    <title>Starter Template · Bootstrap</title>
+    <title>Presentation with controlled video at background</title>
 
     <!--Template based on URL below-->
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
@@ -36,19 +36,19 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <button id="slide-1"></button>
+                    <div id="slide-1"></div>
                 </div>
                 <div class="swiper-slide">
-                    <button id="slide-2"></button>
+                    <div id="slide-2"></div>
                 </div>
                 <div class="swiper-slide">
-                    <button id="slide-3"></button>
+                    <div id="slide-3"></div>
                 </div>
                 <div class="swiper-slide">
-                    <button id="slide-4"></button>
+                    <div id="slide-4"></div>
                 </div>
                 <div class="swiper-slide">
-                    <button id="slide-5"></button>
+                    <div id="slide-5"></div>
                 </div>
             </div>
             <!-- If we need pagination -->
@@ -171,7 +171,7 @@ $(document).ready(function(){
         }
     });
 
-    player.startPlay = function() {
+    player.start = function() {
         var startTime = player.timers[player.timer];
         $('#slide-'+player.timer).html(startTime + 's');
         $("#jquery_jplayer_1").jPlayer("play", startTime); // Begins playing N seconds into the media.
@@ -185,7 +185,7 @@ $(document).ready(function(){
             player.timer = -1;
         }
         player.timer += 1;
-        player.startPlay();
+        player.start();
     });
 
     $(".swiper-button-prev").click( function() {
@@ -193,7 +193,7 @@ $(document).ready(function(){
             player.timer = player.timers.length;
         }
         player.timer -= 1;
-        player.startPlay();
+        player.start();
     });
   });
 </script>
