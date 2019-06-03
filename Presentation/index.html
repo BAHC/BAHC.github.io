@@ -50,6 +50,27 @@
                 <div class="swiper-slide">
                     <div id="slide-5"></div>
                 </div>
+                <div class="swiper-slide">
+                    <div id="slide-6"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="slide-7"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="slide-8"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="slide-9"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="slide-10"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="slide-11"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="slide-12"></div>
+                </div>
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
@@ -79,7 +100,7 @@
 
 var player = {
     timer: 0,
-    timers: [ 0, 5, 10, 15, 20 ]
+    timers: [ 0, 3, 6, 9, 11, 15, 19, 20, 23, 26, 29, 31 ]
 };
 
 var myswiper = new Swiper('.swiper-container', {
@@ -108,16 +129,13 @@ $(document).ready(function(){
     $("#jquery_jplayer_1").jPlayer({
         ready: function () {
             $(this).jPlayer("setMedia", {
-                title: "Big Buck Bunny Trailer",
-                //m4v: "Big_Buck_Bunny_Trailer.m4v",
-                m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
-                ogv: "http://www.jplayer.org/video/ogv/Big_Buck_Bunny_Trailer.ogv",
-                webmv: "http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm",
-                poster: "http://www.jplayer.org/video/poster/Big_Buck_Bunny_Trailer_480x270.png"
-            }).jPlayer("width", "1980px");
+                title: "Yachtering.eu 2019",
+                m4v: "yachtering_presentation_201905.m4v",
+                poster: "yachtering_presentation_201905.png"
+            });
         },
         cssSelectorAncestor: "#jp_container_1",
-        supplied: "m4v, ogv, webm",
+        supplied: "m4v",
         size: {
              width: "auto",
              height: "100vh"
@@ -126,9 +144,9 @@ $(document).ready(function(){
 
     player.start = function() {
         var startTime = player.timers[player.timer];
-        $('#slide-'+player.timer).html(startTime + 's');
         $("#jquery_jplayer_1").jPlayer("play", startTime); // Begins playing N seconds into the media.
-        console.log(['#slide-'+player.timer, startTime]);
+        $('#slide-'+player.timer).html(startTime + 's');
+        //console.log(['#slide-'+player.timer, startTime]);
     }
 
     $("#jquery_jplayer_1").jPlayer("play", 0);
