@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link id="favicon" rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
     <title>Presentation with controlled video at background</title>
 
     <!--Template based on URL below-->
@@ -74,53 +74,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js" integrity="sha256-uckMYBvIGtce2L5Vf/mwld5arpR5JuhAEeJyjPZSUKY=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js" integrity="sha256-YAIw54P6OPiIkUJq8S3ayOEunEz/MiK2AxDY0oFLNBs=" crossorigin="anonymous"></script>
 
-<style media="screen">
-
-.swiper-container {
-    margin: auto;
-    width: 100%;
-    height: 98vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: none;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    width: 100%;
-}
-.swiper-slide:nth-child(2n) {
-    width: 100%;
-}
-.swiper-slide:nth-child(3n) {
-    width: 10%;
-}
-
-.jp_video {
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: 1;
-}
-</style>
 
 <script type="text/javascript">
 
@@ -197,5 +150,7 @@ $(document).ready(function(){
     });
   });
 </script>
+
+<link rel="stylesheet" href="/style.css" />
 </body>
 </html>
