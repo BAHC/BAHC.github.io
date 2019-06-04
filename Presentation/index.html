@@ -35,11 +35,15 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">
-                    <div id="slide-1"></div>
+                <div class="swiper-slide" id="slide-1">
+                    <div class="slideBox-1 slideBox">
+                        <span class="slideText-1 slideText">Hello!</span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-2"></div>
+                <div class="swiper-slide" id="slide-2">
+                    <div class="slideBox-2 slideBox">
+                        <span class="slideText-2 slideText">World!</span>
+                    </div>
                 </div>
                 <div class="swiper-slide">
                     <div id="slide-3"></div>
@@ -89,7 +93,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js" integrity="sha256-uckMYBvIGtce2L5Vf/mwld5arpR5JuhAEeJyjPZSUKY=" crossorigin="anonymous"></script>
@@ -125,12 +129,15 @@ var myswiper = new Swiper('.swiper-container', {
     },
 });
 
+
+
 $(document).ready(function(){
+
     $("#jquery_jplayer_1").jPlayer({
         ready: function () {
             $(this).jPlayer("setMedia", {
                 title: "Yachtering.eu 2019",
-                m4v: "yachtering_presentation_201905.m4v",
+                m4v: "../../yachtering_presentation_201905.m4v",
                 poster: "yachtering_presentation_201905.png"
             });
         },
@@ -145,8 +152,26 @@ $(document).ready(function(){
     player.start = function() {
         var startTime = player.timers[player.timer];
         $("#jquery_jplayer_1").jPlayer("play", startTime); // Begins playing N seconds into the media.
-        $('#slide-'+player.timer).html(startTime + 's');
-        //console.log(['#slide-'+player.timer, startTime]);
+    }
+
+    player.startMessage = function() {
+        var numSlide = player.timer;
+
+        var boxSlide  = $('#slide-'+ numSlide +' .slideBox-'+ numSlide);
+        var textSlide = $('#slide-'+ numSlide +' .slideBox-'+ numSlide +' .slideText-'+ numSlide);
+
+        boxSlide.animate( { left: "170px", opacity: "1" }, "slow" );
+            textSlide.animate( { fontSize: "6em" }, "slow" );
+    }
+
+    player.endMessage = function(prevSlide) {
+        var numSlide = player.timer + prevSlide;
+
+        var boxSlide  = $('#slide-'+ numSlide +' .slideBox-'+ numSlide);
+        var textSlide = $('#slide-'+ numSlide +' .slideBox-'+ numSlide +' .slideText-'+ numSlide);
+
+        boxSlide.animate( { left: 0, opacity: "0.23" } );
+            textSlide.animate( { fontSize: "1em" } );
     }
 
     $("#jquery_jplayer_1").jPlayer("play", 0);
@@ -157,6 +182,8 @@ $(document).ready(function(){
         }
         player.timer += 1;
         player.start();
+        player.startMessage();
+        player.endMessage(-1);
     });
 
     $(".swiper-button-prev").click( function() {
@@ -165,6 +192,8 @@ $(document).ready(function(){
         }
         player.timer -= 1;
         player.start();
+        player.startMessage();
+        player.endMessage(1);
     });
   });
 </script>
