@@ -48,4 +48,4 @@ body {
 }
 
 .slideBox { width: 100%; }
-.slideText { color: #FFF; }
+.slideText { font-family: 'Open Sans Condensed', sans-serif; color: #FFF; }
