@@ -34,46 +34,71 @@
         <div class="swiper-container">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
+                <div class="swiper-slide" id="slide-0">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
+                </div>
                 <!-- Slides -->
                 <div class="swiper-slide" id="slide-1">
-                    <div class="slideBox-1 slideBox">
-                        <span class="slideText-1 slideText">Hello!</span>
+                    <div class="slideBox">
+                        <span class="slideText"></span>
                     </div>
                 </div>
                 <div class="swiper-slide" id="slide-2">
-                    <div class="slideBox-2 slideBox">
-                        <span class="slideText-2 slideText">World!</span>
+                    <div class="slideBox">
+                        <span class="slideText"></span>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-3"></div>
+                <div class="swiper-slide" id="slide-3">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-4"></div>
+                <div class="swiper-slide" id="slide-4">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-5"></div>
+                <div class="swiper-slide" id="slide-5">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-6"></div>
+                <div class="swiper-slide" id="slide-6">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-7"></div>
+                <div class="swiper-slide" id="slide-7">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-8"></div>
+                <div class="swiper-slide" id="slide-8">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-9"></div>
+                <div class="swiper-slide" id="slide-9">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-10"></div>
+                <div class="swiper-slide" id="slide-10">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-11"></div>
+                <div class="swiper-slide" id="slide-11">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <div id="slide-12"></div>
+                <div class="swiper-slide" id="slide-12">
+                    <div class="slideBox">
+                        <span class="slideText"></span>
+                    </div>
                 </div>
             </div>
             <!-- If we need pagination -->
@@ -104,7 +129,36 @@
 
 var player = {
     timer: 0,
-    timers: [ 0, 3, 6, 9, 11, 15, 19, 20, 23, 26, 29, 31 ]
+    slides: 12,
+    timers: {
+        1: "0",
+        2: "3",
+        3: "6",
+        4: "9",
+        5: "11",
+        6: "15",
+        7: "19",
+        8: "20",
+        9: "23",
+        10: "26",
+        11: "29",
+        12: "31"
+    },
+
+    messages: {
+        1: "Арендовали яхту?",
+        2: "Выберите специальный набор продуктов",
+        3: "Для отдыха на яхте",
+        4: "Всего 5 шагов",
+        5: "1 Выберите один из сетов",
+        6: "2 Укажите количество дней",
+        7: "3 Укажите количество людей",
+        8: "Рассчитать",
+        9: "4 Измените блюда или...",
+        10: "4 Измените продукты",
+        11: "Редактируйте то, что Вам удобно",
+        12: "5 Получите продукты на яхту",
+    }
 };
 
 var myswiper = new Swiper('.swiper-container', {
@@ -150,34 +204,35 @@ $(document).ready(function(){
     });
 
     player.start = function() {
-        var startTime = player.timers[player.timer];
+        var startTime = parseInt(player.timers[player.timer]);
         $("#jquery_jplayer_1").jPlayer("play", startTime); // Begins playing N seconds into the media.
     }
 
     player.startMessage = function() {
         var numSlide = player.timer;
-
-        var boxSlide  = $('#slide-'+ numSlide +' .slideBox-'+ numSlide);
-        var textSlide = $('#slide-'+ numSlide +' .slideBox-'+ numSlide +' .slideText-'+ numSlide);
-
-        boxSlide.animate( { left: "170px", opacity: "1" }, "slow" );
-            textSlide.animate( { fontSize: "6em" }, "slow" );
+        var boxSlide  = $('#slide-'+ numSlide +' .slideBox');
+        var textSlide = $('#slide-'+ numSlide +' .slideText');
+        textSlide.html(player.messages[player.timer]);
+        boxSlide.animate( { left: "100px", opacity: "1" }, "slow" );
+            textSlide.animate( { fontSize: "4em" }, "slow" );
     }
 
     player.endMessage = function(prevSlide) {
         var numSlide = player.timer + prevSlide;
-
-        var boxSlide  = $('#slide-'+ numSlide +' .slideBox-'+ numSlide);
-        var textSlide = $('#slide-'+ numSlide +' .slideBox-'+ numSlide +' .slideText-'+ numSlide);
-
-        boxSlide.animate( { left: 0, opacity: "0.23" } );
+        var boxSlide  = $('#slide-'+ numSlide +' .slideBox');
+        var textSlide = $('#slide-'+ numSlide +' .slideText');
+        textSlide.html(player.messages[player.timer]);
+        boxSlide.animate( { left: "-100px", opacity: "0.1" } );
             textSlide.animate( { fontSize: "1em" } );
     }
 
     $("#jquery_jplayer_1").jPlayer("play", 0);
 
     $(".swiper-button-next").click( function() {
-        if(player.timer == player.timers.length-1) {
+
+        console.log(player.timers.length);
+
+        if(player.timer == player.sliders) {
             player.timer = -1;
         }
         player.timer += 1;
@@ -188,7 +243,7 @@ $(document).ready(function(){
 
     $(".swiper-button-prev").click( function() {
         if(player.timer == 0) {
-            player.timer = player.timers.length;
+            player.timer = player.sliders;
         }
         player.timer -= 1;
         player.start();
