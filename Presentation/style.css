@@ -47,5 +47,5 @@ body {
     z-index: 1;
 }
 
-.slideBox { width: 100%; }
+.slideBox { width: 100%; text-align: center; padding: 20px; }
 .slideText { font-family: 'Open Sans Condensed', sans-serif; color: #FFF; }

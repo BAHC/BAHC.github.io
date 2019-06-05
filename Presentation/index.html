@@ -34,11 +34,6 @@
         <div class="swiper-container">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-                <div class="swiper-slide" id="slide-0">
-                    <div class="slideBox">
-                        <span class="slideText"></span>
-                    </div>
-                </div>
                 <!-- Slides -->
                 <div class="swiper-slide" id="slide-1">
                     <div class="slideBox">
@@ -128,23 +123,23 @@
 <script type="text/javascript">
 
 var player = {
-    timer: 0,
+    timer: 1,
     slides: 12,
     timers: {
-        1: "0",
+        1: "1",
         2: "3",
         3: "6",
         4: "9",
         5: "11",
         6: "15",
         7: "19",
-        8: "20",
-        9: "23",
+        8: "21",
+        9: "24",
         10: "26",
         11: "29",
         12: "31"
     },
-
+    timeMessage: null,
     messages: {
         1: "Арендовали яхту?",
         2: "Выберите специальный набор продуктов",
@@ -164,8 +159,8 @@ var player = {
 var myswiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
     centeredSlides: true,
-    loop: true,
-    spaceBetween: 10,
+    loop: false,
+    spaceBetween: 100,
 
     pagination: {
         el: '.swiper-pagination',
@@ -182,8 +177,6 @@ var myswiper = new Swiper('.swiper-container', {
         el: '.swiper-scrollbar',
     },
 });
-
-
 
 $(document).ready(function(){
 
@@ -208,47 +201,62 @@ $(document).ready(function(){
         $("#jquery_jplayer_1").jPlayer("play", startTime); // Begins playing N seconds into the media.
     }
 
-    player.startMessage = function() {
-        var numSlide = player.timer;
-        var boxSlide  = $('#slide-'+ numSlide +' .slideBox');
-        var textSlide = $('#slide-'+ numSlide +' .slideText');
-        textSlide.html(player.messages[player.timer]);
-        boxSlide.animate( { left: "100px", opacity: "1" }, "slow" );
-            textSlide.animate( { fontSize: "4em" }, "slow" );
+    player.startMessage = function(numSlide)
+    {
+        player.animateMessage(numSlide, "1", "3.2em");
     }
 
-    player.endMessage = function(prevSlide) {
-        var numSlide = player.timer + prevSlide;
+    player.endMessage = function(numSlide)
+    {
+        player.animateMessage(numSlide, "0", "1em", "200");
+    }
+
+    player.animateMessage = function(numSlide, boxOpacity, fontSize, moveSpeed = "slow", clearQueue = true)
+    {
+        var numSlide   = numSlide;
+        var boxOpacity = boxOpacity;
+        var fontSize   = fontSize;
+        var moveSpeed  = moveSpeed;
+
         var boxSlide  = $('#slide-'+ numSlide +' .slideBox');
         var textSlide = $('#slide-'+ numSlide +' .slideText');
+
         textSlide.html(player.messages[player.timer]);
-        boxSlide.animate( { left: "-100px", opacity: "0.1" } );
-            textSlide.animate( { fontSize: "1em" } );
-    }
+        boxSlide.stop(clearQueue).animate( { opacity: boxOpacity }, moveSpeed );
+        textSlide.stop(clearQueue).animate( { fontSize: fontSize }, moveSpeed );
+    };
 
     $("#jquery_jplayer_1").jPlayer("play", 0);
 
-    $(".swiper-button-next").click( function() {
-
-        console.log(player.timers.length);
-
+    $(".swiper-button-next").click( function()
+    {
+        var prevSlider;
         if(player.timer == player.sliders) {
-            player.timer = -1;
+            player.timer = 1;
+            prevSlider = player.sliders;
+        } else {
+            prevSlider = player.timer;
+            player.timer += 1;
         }
-        player.timer += 1;
         player.start();
-        player.startMessage();
-        player.endMessage(-1);
+        player.startMessage(player.timer);
+        player.endMessage(prevSlider);
     });
 
-    $(".swiper-button-prev").click( function() {
-        if(player.timer == 0) {
+    $(".swiper-button-prev").click( function()
+    {
+        var prevSlider;
+        if(player.timer == 1) {
             player.timer = player.sliders;
+            prevSlider = 1;
+        } else {
+            prevSlider = player.timer;
+            player.timer -= 1;
         }
-        player.timer -= 1;
+
         player.start();
-        player.startMessage();
-        player.endMessage(1);
+        player.startMessage(player.timer);
+        player.endMessage(prevSlider);
     });
   });
 </script>
