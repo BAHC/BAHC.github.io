@@ -38,6 +38,9 @@ body {
     width: 10%;
 }
 
+.swiper-button-prev, .swiper-button-next {  }
+.swiper-button-hidden { background-image: none; }
+
 .jp_video {
     margin-left: auto;
     margin-right: auto;
