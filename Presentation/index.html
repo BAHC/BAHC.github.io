@@ -96,15 +96,14 @@
                     </div>
                 </div>
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
 
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
 
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
         </div>
 
     </main><!-- /.container -->
@@ -156,36 +155,20 @@ var player = {
     }
 };
 
-var myswiper = new Swiper('.swiper-container', {
-    parallax: true,
-    slidesPerView: 1,
-    centeredSlides: false,
+var myswiper = new Swiper('.swiper-container',
+{
     loop: false,
-    spaceBetween: 0,
 
-    autoplay: {
-        delay: 3000,
-        waitForTransition: true,
-    },
-
-    /*
     pagination: {
         el: '.swiper-pagination',
-        clickable: false,
+        type: 'progressbar',
     },
-    */
 
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-        hideOnClick: true,
     },
 
-    // And if we need scrollbar
-    scrollbar: {
-        el: '.swiper-scrollbar',
-
-     },
 });
 
 myswiper.on('slideNextTransitionEnd', function () {
@@ -223,22 +206,16 @@ $(document).ready(function(){
 
     player.startMessage = function(numSlide)
     {
-        player.animateMessage(numSlide, "1", "300px", "100%", "3.2em");
+        player.animateMessage(numSlide, "1", "300px", "200px", "3.2em");
     }
 
     player.endMessage = function(numSlide)
     {
-        player.animateMessage(numSlide, "0", "-1000px", "50%", "1em", "fast");
+        player.animateMessage(numSlide, "0", "0", "0", "1em", "fast");
     }
 
     player.animateMessage = function(numSlide, boxOpacity, boxLeft, boxHeight = "100vh", fontSize, moveSpeed = "slow", clearQueue = true)
     {
-        var numSlide   = numSlide;
-        var boxOpacity = boxOpacity;
-        var boxLeft    = boxLeft;
-        var boxHeight  = boxHeight;
-        var fontSize   = fontSize;
-        var moveSpeed  = moveSpeed;
 
         var boxSlide  = $('#slide-'+ numSlide +' .slideBox');
         var textSlide = $('#slide-'+ numSlide +' .slideText');
@@ -253,6 +230,12 @@ $(document).ready(function(){
         textSlide.stop(clearQueue).animate( { fontSize: fontSize }, moveSpeed );
     };
 
+    player.slide = function(timer, prevSlider) {
+        player.start();
+        player.startMessage(player.timer);
+        player.endMessage(prevSlider);
+    };
+
     player.nextSlide = function()
     {
         var prevSlider;
@@ -263,9 +246,7 @@ $(document).ready(function(){
             prevSlider = player.timer;
             player.timer += 1;
         }
-        player.start();
-        player.startMessage(player.timer);
-        player.endMessage(prevSlider);
+        player.slide(player.timer, prevSlider);
     };
 
     player.prevSlide = function()
@@ -278,9 +259,7 @@ $(document).ready(function(){
             prevSlider = player.timer;
             player.timer -= 1;
         }
-        player.start();
-        player.startMessage(player.timer);
-        player.endMessage(prevSlider);
+        player.slide(player.timer, prevSlider);
     };
 
     $("#jquery_jplayer_1").jPlayer("play", 0);
@@ -289,6 +268,6 @@ $(document).ready(function(){
 </script>
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./style.css?v=20190605" />
+<link rel="stylesheet" href="./style.css?v=201906051300" />
 </body>
 </html>
